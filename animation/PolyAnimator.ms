@@ -43,7 +43,7 @@ macroScript PolyFormAnimatorinator category:"PolyFormTools"
 	
 	fn compareFN v1 v2 =
 	(
-	local myD = getnodebyname (ThePolyAnimator.pick_obj.text)
+	local myD = $starting_point_dummy
 	local d = (distance v1 myD)-(distance v2 myD)
 	case of
 	(
@@ -357,7 +357,14 @@ macroScript PolyFormAnimatorinator category:"PolyFormTools"
 			)
 			
 
-			if chk_anim.checked==true then qsort objectsToAnimate compareFN          
+			if chk_anim.checked==true then (
+				d = Dummy()
+				local tmp = getnodebyname pick_obj.text
+				d.name = "starting_point_dummy"
+				d.pos = tmp.pos
+				qsort objectsToAnimate compareFN          
+				delete d
+			)
 				
 			local a,startTransform,startRot
             For b =1 to objectsToAnimate.count do
