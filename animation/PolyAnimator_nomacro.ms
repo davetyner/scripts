@@ -18,7 +18,7 @@ This script will batch animate objects based on selection order or based on prox
 --***********************************************************************************************
 */
 
-macroScript PolyFormAnimatorinator category:"PolyFormTools"
+
 (
 	global objectsToAnimate = #()
 	global obj_state_arr = #()
